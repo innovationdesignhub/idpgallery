@@ -39,6 +39,18 @@ function App() {
   const videoRef = useRef(null)
   const scannerRef = useRef(null)
   const lastScanRef = useRef({ text: '', time: 0 })
+  const [introStep, setIntroStep] = useState(0)
+
+  useEffect(() => {
+    const timers = [
+      setTimeout(() => setIntroStep(1), 300),
+      setTimeout(() => setIntroStep(2), 1300),
+      setTimeout(() => setIntroStep(3), 1900),
+      setTimeout(() => setIntroStep(4), 2400),
+      setTimeout(() => setIntroStep(5), 3200),
+    ]
+    return () => timers.forEach(clearTimeout)
+  }, [])
 
   const addProject = useCallback((project) => {
     setScanned((current) => {
@@ -171,20 +183,20 @@ function App() {
         <span style={{ top: '32%', left: '-12%', animationDelay: '5.1s' }} />
         <span style={{ top: '48%', left: '-12%', animationDelay: '7.8s' }} />
       </div>
-      <nav className="topbar">
+      <nav className={`topbar app-reveal ${introStep >= 5 ? 'is-in' : ''}`}>
         <div className="nav-status"><span className="status-dot" /> field guide <span className="nav-divider" /> 2024–25</div>
       </nav>
 
-      <section className="intro-grid">
-        <div className="intro-heading"><span className="eyebrow">01 / EXPLORE THE GALLERY</span><h1>Wander through <em>the work.</em></h1></div>
+      <section className="intro-grid intro-focus">
+        <div className={`intro-heading intro-reveal ${introStep >= 1 ? 'is-in' : ''}`}><h1>Wander through <em>the work.</em></h1></div>
         <div className="intro-flow">
-          <div className="intro-aside"><span className="qr-doodle"><QrCode size={32} strokeWidth={1.8} /></span><span>5 scans</span></div>
-          <span className="intro-arrow" aria-hidden="true">→</span>
-          <div className="intro-aside"><Sparkles size={26} /><span>1 silly report</span></div>
+          <div className={`intro-aside intro-reveal ${introStep >= 2 ? 'is-in' : ''}`}><span className="qr-doodle"><QrCode size={32} strokeWidth={1.8} /></span><span>5 scans</span></div>
+          <span className={`intro-arrow intro-reveal ${introStep >= 3 ? 'is-in' : ''}`} aria-hidden="true">→</span>
+          <div className={`intro-aside intro-reveal ${introStep >= 4 ? 'is-in' : ''}`}><Sparkles size={26} /><span>1 silly report</span></div>
         </div>
       </section>
 
-      <section className="scanner-panel">
+      <section className={`scanner-panel app-reveal ${introStep >= 5 ? 'is-in' : ''}`}>
         <div className={`camera-window ${cameraOn ? 'camera-active' : ''}`}>
           <video ref={videoRef} muted playsInline className="camera-feed" />
           <div className="scan-corner top-left" /><div className="scan-corner top-right" /><div className="scan-corner bottom-left" /><div className="scan-corner bottom-right" />
@@ -199,8 +211,8 @@ function App() {
         {devMode && <div className="dev-panel"><div><span className="eyebrow">DEV MODE</span><strong>Choose a project to simulate a scan</strong></div><div className="dev-projects">{projects.map((project) => <button key={project.id} type="button" className={scanned.some((item) => item.id === project.id) ? 'selected' : ''} onClick={() => addProject(project)}>{project.name}<Check size={14} /></button>)}</div><div className="dev-report-picker"><span className="eyebrow">PREVIEW A REPORT</span><div>{personalities.map((item) => <button key={item.key} type="button" className={personality.key === item.key ? 'selected' : ''} onClick={() => setDevPersonalityKey(item.key)}><span>{item.emoji}</span>{item.name}</button>)}<button type="button" className={!devPersonalityKey ? 'selected' : ''} onClick={() => setDevPersonalityKey(null)}>auto result</button></div></div></div>}
       </section>
 
-      <section className="collection-section">
-        <div className="section-heading"><div><span className="eyebrow">02 / COLLECT CLUES</span><h2>Your field notes</h2></div><span className="count-label">{scanned.length} of {projects.length} discovered</span></div>
+      <section className={`collection-section app-reveal ${introStep >= 5 ? 'is-in' : ''}`}>
+        <div className="section-heading"><div><h2>Your field notes</h2></div><span className="count-label">{scanned.length} of {projects.length} discovered</span></div>
         <div className="progress-track"><span style={{ width: `${progress}%` }} /></div>
         <div className="project-grid">
           {projects.map((project, index) => {
@@ -213,12 +225,12 @@ function App() {
         </div>
       </section>
 
-      <section className={`report-section ${unlocked ? 'unlocked' : ''}`} ref={reportSectionRef}>
-        <div className="report-header"><div><span className="eyebrow">03 / YOUR BOTANICAL REPORT</span><h2>{unlocked ? 'The results are in.' : 'Your report is growing.'}</h2></div>{!unlocked && <span className="locked-label"><LockKeyhole size={15} /> {UNLOCK_TARGET - scanned.length} more to unlock</span>}</div>
+      <section className={`report-section app-reveal ${introStep >= 5 ? 'is-in' : ''} ${unlocked ? 'unlocked' : ''}`} ref={reportSectionRef}>
+        <div className="report-header"><div><h2>{unlocked ? 'The results are in.' : 'Your report is growing.'}</h2></div>{!unlocked && <span className="locked-label"><LockKeyhole size={15} /> {UNLOCK_TARGET - scanned.length} more to unlock</span>}</div>
         {unlocked ? <><div className={`report-card ${reportRevealed ? 'is-revealed' : ''}`} ref={reportCardRef} style={{ '--report-color': personality.color }} onClick={tapReportCard} role="button" tabIndex="0" onKeyDown={(event) => event.key === 'Enter' && tapReportCard()} aria-label={reportRevealed ? `${personality.name} personality report` : `Tap ${3 - revealTaps} more times to reveal your personality`}><div className="report-card-flip" style={{ transform: `scale(${reportScale}) rotateY(${reportRevealed ? 0 : 180}deg)` }}><div className="report-card-face report-card-inner report-card-front" ref={reportFrontRef}><div className="report-brand"><img src="/logos/nus.svg" alt="NUS" className="report-brand-logo" /><img src="/logos/idp.png" alt="IDP" className="report-brand-logo report-brand-logo-idp" /></div><div className="report-illustration">{personality.emoji}</div><div className="report-copy"><span className="report-kicker">You are a</span><h3>{personality.name}</h3><p className="report-title">{personality.title}</p><p>{personality.description}</p><div className="report-facts"><div><span>good at</span><strong>{personality.strengths[0]}</strong></div><div><span>watch out for</span><strong>{personality.weakness}</strong></div><div><span>overall flavor</span><strong>{personality.flavor}</strong></div></div></div><div className="report-projects"><span>your evidence</span><div className="report-projects-row">{scanned.map((project) => <img key={project.id} src={project.image} alt={project.name} title={project.name} />)}</div></div></div><div className="report-card-face report-card-back"><div className="spark-field" aria-hidden="true">{Array.from({ length: 12 }, (_, sparkIndex) => <span key={sparkIndex} style={{ '--spark-index': sparkIndex }}>✦</span>)}</div><span className="back-sparkle">✦</span><p className="back-kicker">gallery secret</p><h3>Tap 3 times<br />to reveal your personality</h3><p className="tap-progress">{revealTaps} / 3 taps</p><div className="tap-dots">{[0, 1, 2].map((tapIndex) => <span key={tapIndex} className={tapIndex < revealTaps ? 'complete' : ''} />)}</div></div></div></div><button className="download-button" onClick={(event) => { event.stopPropagation(); downloadReport() }}><Download size={17} /> Save your card</button>{reportRevealed && <div className="alternate-cards"><span className="eyebrow">other garden cards</span><div>{personalities.filter((item) => item.key !== personality.key).map((item) => <article key={item.key} className="alternate-card" style={{ '--alternate-color': item.color }}><span>{item.emoji}</span><strong>{item.name}</strong><small>{item.title}</small></article>)}</div></div>}</> : <div className="report-locked"><span className="sprout">✦</span><p>The gallery is still whispering.<br /><strong>Find {UNLOCK_TARGET} projects</strong> to hear the whole story.</p><div className="locked-meter"><span style={{ width: `${progress}%` }} /></div></div>}
       </section>
 
-      <footer><span>ENGINEERING DESIGN &amp; PRODUCT / GALLERY FIELD GUIDE</span><button className={`dev-toggle ${devMode ? 'active' : ''}`} onClick={() => setDevMode((current) => !current)}><span /> dev mode</button><span>made for curious humans <span className="heart">♥</span></span></footer>
+      <footer className={`app-reveal ${introStep >= 5 ? 'is-in' : ''}`}><span>ENGINEERING DESIGN &amp; PRODUCT / GALLERY FIELD GUIDE</span><button className={`dev-toggle ${devMode ? 'active' : ''}`} onClick={() => setDevMode((current) => !current)}><span /> dev mode</button><span>made for curious humans <span className="heart">♥</span></span></footer>
 
       {selectedProject && <div className="modal-backdrop" onClick={closeProjectModal}><div className="project-modal" onClick={(event) => event.stopPropagation()}><button className="modal-close" onClick={closeProjectModal} aria-label="Close project"><X size={20} /></button><div className="modal-scroll"><img src={selectedProject.image} alt="" /><div className="modal-body"><span className="eyebrow">{selectedProject.category}</span><h2>{selectedProject.name}</h2><p className="modal-tag">{selectedProject.tag}</p><p className="modal-description">{selectedProject.description}</p><p className="modal-team">{selectedProject.team}</p><div className="modal-note"><Sparkles size={16} /> This project adds a little {dominantTrait} sparkle to your report.</div></div></div><div className="modal-actions"><button className="primary-button" onClick={closeProjectModal}>Keep exploring <ChevronDown size={16} /></button>{selectedProject.url && <a className="secondary-button" href={selectedProject.url} target="_blank" rel="noopener noreferrer">Visit original page <ExternalLink size={15} /></a>}</div></div></div>}
 
