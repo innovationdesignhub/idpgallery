@@ -1,0 +1,212 @@
+[
+  {
+    "id": "tgi-ring",
+    "url": "https://q.me-qr.com/xysytn3z",
+    "image": "/projects/tgi-ring.jpeg",
+    "category": "Wearable Technologies",
+    "name": "TGI-Ring",
+    "tag": "Wearable reminders for hemiplegia patients",
+    "team": "Jin Zican, Wang Bo, Wen Ruiyang",
+    "description": "A ring-based wearable that supports stroke survivors with reduced thermal sensation, warning against heat and cold hazards with real-time temperature sensing, LED indicators, and Peltier-based \"pain illusion\" feedback.",
+    "scores": { "mechanical": 3, "chemical": 2, "curious": 3 }
+  },
+  {
+    "id": "pulsewave-glove",
+    "url": "https://q.me-qr.com/oslv9uv6",
+    "image": "/projects/pulsewave-glove.jpeg",
+    "category": "Wearable Technologies",
+    "name": "Pulsewave Glove",
+    "tag": "Feel music through light and vibration",
+    "team": "Huang Chenghao, Lu Yumeng, Xu Wangshu, Yuan Jilei, Zhang Zhinan",
+    "description": "A plug-and-play glove that captures surrounding audio and translates it into synchronized vibration and light, helping people with hearing impairments feel rhythm and connect in music-driven settings.",
+    "scores": { "mechanical": 3, "chemical": 1, "curious": 4 }
+  },
+  {
+    "id": "micro-hydro-turbine",
+    "url": "https://cde.nus.edu.sg/edic/projects/innovating-for-sustainable-cities/micro-hydro-turbine/",
+    "image": "/projects/micro-hydro-turbine.jpeg",
+    "category": "Sustainable Design",
+    "name": "Micro-Turbine Hydro Harvesting",
+    "tag": "Compact energy from low-head water flow",
+    "team": "Ambrose Yew Hao Qiang, Lim Rou Yi, Muhammad Haikal, Russell Daniel Yeo Wei Ming",
+    "description": "A scalable, low-maintenance bulb turbine housed in a nozzle-diffuser casing, built to harvest renewable energy from low-head water flow and help cut carbon emissions from the energy sector.",
+    "scores": { "mechanical": 4, "chemical": 1, "curious": 2 }
+  },
+  {
+    "id": "gait-x",
+    "url": "https://qr.me-qr.com/aS87vbbu",
+    "image": "/projects/gait-x.jpeg",
+    "category": "Wearable Technologies",
+    "name": "Gait X",
+    "tag": "A smart wearable shoe for gait analysis",
+    "team": "Chen Guanjun, Lyu Jiaxun, Ma Xinkai",
+    "description": "An intelligent insole combining pressure and motion sensors with a transformer-based deep learning model to deliver clinical-level gait analysis, instant LED alerts, and posture coaching through an app.",
+    "scores": { "mechanical": 3, "chemical": 1, "curious": 3 }
+  },
+  {
+    "id": "blended-wing-propulsion",
+    "url": "https://cde.nus.edu.sg/edic/projects/innovating-for-future-mobility/blended-wing-distributed-propulsion/",
+    "image": "/projects/blended-wing-propulsion.jpeg",
+    "category": "Aerospace Technologies",
+    "name": "Blended Wing Distributed Propulsion",
+    "tag": "Fixing take-off lift with distributed thrust",
+    "team": "Jared Tham Jia Le, Joseph David Chan",
+    "description": "Blended wing body aircraft cut fuel burn at cruise but struggle at take-off and landing. This project flight-tests model aircraft with distributed propulsion to recover lift, stall speed, and manoeuvrability.",
+    "scores": { "mechanical": 4, "chemical": 0, "curious": 3 }
+  },
+  {
+    "id": "cyanobacteria-growth",
+    "url": "https://www.youtube.com/watch?v=ndE-vtywCNE&ab_channel=NUSiDP",
+    "image": "/projects/cyanobacteria-growth.jpeg",
+    "category": "Sustainability",
+    "name": "Growth Optimisation of Cyanobacteria",
+    "tag": "Tuning light to grow carbon-capturing microbes",
+    "team": "Aaryana Aroop Pradhan, Ahluwalia Pahaul, Naadiah Bte Mohamed Ibrahim",
+    "description": "Cyanobacteria are microscopic organisms that absorb CO2 and synthesise sustainable biomaterials. This research tunes light intensity, wavelength, and light/dark cycles to optimise their growth for carbon capture.",
+    "scores": { "mechanical": 0, "chemical": 4, "curious": 2 }
+  },
+  {
+    "id": "nus-calibur-robotics",
+    "url": "https://www.nusrobomaster.com/",
+    "image": "/projects/nus-calibur-robotics.jpeg",
+    "category": "Competition Project",
+    "name": "NUS Calibur Robotics",
+    "tag": "Battle robots for the DJI RoboMaster championship",
+    "team": "50+ member multidisciplinary student team, est. 2019",
+    "description": "A multidisciplinary team of over 50 students designing, fabricating, and programming seven specialised combat robots to compete at the DJI RoboMaster University Championships.",
+    "scores": { "mechanical": 4, "chemical": 0, "curious": 2 }
+  },
+  {
+    "id": "cubesat-propulsion",
+    "url": "https://cde.nus.edu.sg/edic/projects/innovations-in-intelligent-systems/cubesat-propulsion-eg4301-2024/",
+    "image": "/projects/cubesat-propulsion.jpeg",
+    "category": "Aerospace Technologies",
+    "name": "CubeSat Propulsion (CRADLE-M3)",
+    "tag": "3D-printed titanium thrusters for tiny satellites",
+    "team": "Darryl Lim Zhen Hao, Wang Wei Lin",
+    "description": "A 1U titanium-alloy CubeSat thruster made by powder-bed fusion, built as a cheaper alternative to bulky off-the-shelf propulsion. A vacuum chamber test rig validates its thrust under simulated space conditions.",
+    "scores": { "mechanical": 4, "chemical": 2, "curious": 3 }
+  },
+  {
+    "id": "flora-fauna-monitoring",
+    "url": null,
+    "qrNote": "This poster's photographed QR decoded to the same URL as micro-hydro-turbine, likely a mixed-up print at the exhibit (both are Sustainable Design posters). Left unset so it never wins a scan match against the correct project; reachable via dev mode / demo scan until it gets a corrected QR code.",
+    "image": "/projects/flora-fauna-monitoring.jpeg",
+    "category": "Sustainability",
+    "name": "Sustainable Monitoring of Flora and Fauna",
+    "tag": "Computer vision for wildlife conservation",
+    "team": "Anurag Mahlawat, Kevin Samuel Sumanam, Ng Xin Le",
+    "description": "Built with Mandai Wildlife Reserve and NParks, this camera-based system uses computer vision to detect and study birds automatically, visualizing trends that feed into conservation strategy.",
+    "scores": { "mechanical": 1, "chemical": 1, "curious": 4 }
+  },
+  {
+    "id": "katalog",
+    "url": "https://vimeo.com/530134396",
+    "image": "/projects/katalog.jpeg",
+    "category": "Product Innovation",
+    "name": "Katalog",
+    "tag": "4,563 Kickstarter projects, made tangible",
+    "team": "Ho Yi Jing",
+    "description": "A collection of 24 booklets cataloguing every product design project on Kickstarter in 2017. Booklet thickness maps to project volume, and color bleeds visualize funding trends across the dataset.",
+    "scores": { "mechanical": 1, "chemical": 0, "curious": 4 }
+  },
+  {
+    "id": "duet",
+    "url": "https://www.youtube.com/watch?v=yjDQCT01k_g&ab_channel=Pras",
+    "image": "/projects/duet.jpeg",
+    "category": "Creative Technologies",
+    "name": "DUET",
+    "tag": "A marble-powered musical instrument for two",
+    "team": "Prasanth Kumar, Alexandra Arguelles, Gan Jie Lin, Sim Ee En, Ian, Julian Tan, Huang Zhiyuan",
+    "description": "A dual-sided wood-and-metal instrument where players exchange colored marbles along tracks. Sensors read each marble’s color and travel time to trigger pitch and note duration, turning play into music.",
+    "scores": { "mechanical": 3, "chemical": 0, "curious": 4 }
+  },
+  {
+    "id": "typodont-plus",
+    "url": "https://vimeo.com/698038662",
+    "image": "/projects/typodont-plus.jpeg",
+    "category": "Healthcare Innovation",
+    "name": "Typodont+",
+    "tag": "The first simulator that feels a root touch",
+    "team": "Luke Goh Xu Jie, Loh Yue Xuan Chantel, Hugo Jean Guillaume Bourguignon",
+    "description": "Orthodontic mini-screw insertion demands precision most training can’t simulate. Typodont+ is the first practice simulator that detects root contact, giving students a safe space to build skill before real patients.",
+    "scores": { "mechanical": 2, "chemical": 1, "curious": 3 }
+  },
+  {
+    "id": "nim-coffee-table",
+    "url": "https://youtu.be/YPTL8EJZ1Eg",
+    "image": "/projects/nim-coffee-table.jpeg",
+    "category": "Sustainable Design",
+    "name": "Nim Coffee Table",
+    "tag": "Furniture moulded from blended denim and cotton",
+    "team": "Bryce Lim, Madeline See",
+    "description": "A three-legged coffee table showcasing the mouldability of blended fabric. Starch-saturated denim, cotton, and a 3D-printed mould combine two colors into one seamless single-piece form with no joinery at all.",
+    "scores": { "mechanical": 2, "chemical": 3, "curious": 2 }
+  },
+  {
+    "id": "healthcare-utility-box",
+    "url": "https://cde.nus.edu.sg/edic/projects/innovating-for-better-healthcare/healthcare-utility-box/",
+    "image": "/projects/healthcare-utility-box.jpeg",
+    "category": "Healthcare Innovation",
+    "name": "Healthcare Utility Box (HUB)",
+    "tag": "A smart cabinet for hospital-at-home care",
+    "team": "Gabriel Wong Kong Yee, Goh Guan Hao, Ryan Tan Cheng Lee",
+    "description": "A home-delivered cabinet system that uses RFID and a cloud database to streamline patient care inventory for Mobile Inpatient Care-at-Home nurses, with an adjustable work area and built-in IV drip hook.",
+    "scores": { "mechanical": 2, "chemical": 0, "curious": 3 }
+  },
+  {
+    "id": "mobile-workstation-healthcare",
+    "url": "https://cde.nus.edu.sg/edic/projects/innovating-for-better-healthcare/mobile-workstation-healthcare/",
+    "image": "/projects/mobile-workstation-healthcare.jpeg",
+    "category": "Healthcare Innovation",
+    "name": "Workstation on Wheels",
+    "tag": "An under-10kg mobile clinic for home-care nurses",
+    "team": "Danyel Tan Tze Zen, Nur Sakhina Binti Jamal, Sara Wong Hui Xian",
+    "description": "An all-in-one lightweight luggage under 10kg that streamlines packing and transport for home-care nurses, with specialised drawers, a built-in IV drip stand, and a deployable workstation table.",
+    "scores": { "mechanical": 3, "chemical": 0, "curious": 2 }
+  },
+  {
+    "id": "fusilli",
+    "url": "https://clementzheng.info/Fusilli",
+    "image": "/projects/fusilli.jpeg",
+    "category": "Product Innovation",
+    "name": "Fusilli",
+    "tag": "Algorithmically grown, 3D-printed wrist accessories",
+    "team": "Clement Zheng",
+    "description": "A collection of elastic wrist accessories 3D-printed in polyamide, their forms generated from periodic mathematical formulae. A Leap Motion sensor lets you sculpt new designs by moving your hand through space.",
+    "scores": { "mechanical": 2, "chemical": 2, "curious": 4 }
+  },
+  {
+    "id": "leaf-sampling-drone",
+    "url": "https://cde.nus.edu.sg/edic/projects/innovating-for-sustainable-cities/drone-based-solution-for-leaf-sampling-in-primary-tropical-rainforests/",
+    "image": "/projects/leaf-sampling-drone.jpeg",
+    "category": "Sustainable Design",
+    "name": "Leaf Sampling Drone",
+    "tag": "Reaching 70m rainforest canopies for research",
+    "team": "Bryan Lim Min Kwang, Loh Yun Ying, Oung Yong Sheng Kennedy, Tan Sian Hern Ivan-Darien",
+    "description": "A drone-based solution with a foldable boom and adjustable sampling tool that collects leaf samples from rainforest treetops up to 70 metres tall, supporting ecophysiology and foliar nutrient research.",
+    "scores": { "mechanical": 4, "chemical": 1, "curious": 3 }
+  },
+  {
+    "id": "bumblebee",
+    "url": "https://bumblebee.sg/about-us/",
+    "image": "/projects/bumblebee.jpeg",
+    "category": "Competition Project",
+    "name": "Bumblebee",
+    "tag": "Autonomous vehicles that navigate the open ocean",
+    "team": "Student-run multidisciplinary robotics team, est. 2012",
+    "description": "A student-run team building Autonomous Underwater Vehicles and Autonomous Surface Vessels that navigate independently from shoreline to deep water, competing at RoboSub and the Maritime RobotX Challenge.",
+    "scores": { "mechanical": 4, "chemical": 1, "curious": 2 }
+  },
+  {
+    "id": "monchi",
+    "url": "https://youtu.be/Nfa3Ye8QfzU",
+    "image": "/projects/monchi.jpeg",
+    "category": "Product Innovation",
+    "name": "Monchi",
+    "tag": "A mealtime companion that grew into a snack guard",
+    "team": "Feng Guozi, Yang Jun Wei, Gabriella Edith Tan Rui",
+    "description": "Inspired by the playacting nature of toys, Monchi began as an entertaining mealtime companion-cum-container to coax fussy children into eating their veggies, then found a second calling protecting hands during messy outdoor snacking. Successfully funded on Kickstarter in 2021 with $34,559 from 766 backers.",
+    "scores": { "mechanical": 1, "chemical": 0, "curious": 4 }
+  }
+]

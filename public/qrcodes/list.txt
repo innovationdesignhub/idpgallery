@@ -1,0 +1,114 @@
+URL
+WhatsApp Image 2026-09-28 at 3.42.01 PM.jpeg
+https://q.me-qr.com/xysytn3z
+DESCRIPTION
+TGI-Ring (Wearable Technologies). A ring-based wearable that supports stroke survivors with reduced thermal sensation, warning against heat and cold hazards with real-time temperature sensing, LED indicators, and Peltier-based "pain illusion" feedback.
+
+URL
+WhatsApp Image 2026-09-28 at 3.42.02 PM.jpeg
+https://q.me-qr.com/oslv9uv6
+DESCRIPTION
+Pulsewave Glove (Wearable Technologies). A plug-and-play glove that captures surrounding audio and translates it into synchronized vibration and light, helping people with hearing impairments feel rhythm and connect in music-driven settings.
+
+URL
+WhatsApp Image 2026-09-28 at 3.42.03 PM (1).jpeg
+https://cde.nus.edu.sg/edic/projects/innovating-for-sustainable-cities/micro-hydro-turbine/
+DESCRIPTION
+Micro-Turbine Hydro Harvesting (Sustainable Design). A scalable, low-maintenance bulb turbine housed in a nozzle-diffuser casing, built to harvest renewable energy from low-head water flow and help cut carbon emissions from the energy sector.
+
+URL
+WhatsApp Image 2026-09-28 at 3.42.03 PM.jpeg
+https://qr.me-qr.com/aS87vbbu
+DESCRIPTION
+Gait X (Wearable Technologies). An intelligent insole combining pressure and motion sensors with a transformer-based deep learning model to deliver clinical-level gait analysis, instant LED alerts, and posture coaching through an app.
+
+URL
+WhatsApp Image 2026-09-28 at 3.42.04 PM.jpeg
+https://cde.nus.edu.sg/edic/projects/innovating-for-future-mobility/blended-wing-distributed-propulsion/
+DESCRIPTION
+Blended Wing Distributed Propulsion (Aerospace Technologies). Blended wing body aircraft cut fuel burn at cruise but struggle at take-off and landing. This project flight-tests model aircraft with distributed propulsion to recover lift, stall speed, and manoeuvrability.
+
+URL
+WhatsApp Image 2026-09-28 at 3.42.05 PM (1).jpeg
+https://www.youtube.com/watch?v=ndE-vtywCNE&ab_channel=NUSiDP
+DESCRIPTION
+Growth Optimisation of Cyanobacteria (Sustainability). Cyanobacteria are microscopic organisms that absorb CO2 and synthesise sustainable biomaterials. This research tunes light intensity, wavelength, and light/dark cycles to optimise their growth for carbon capture.
+
+URL
+WhatsApp Image 2026-09-28 at 3.42.05 PM (2).jpeg
+https://www.nusrobomaster.com/
+DESCRIPTION
+NUS Calibur Robotics (Competition Project). A multidisciplinary team of over 50 students designing, fabricating, and programming seven specialised combat robots to compete at the DJI RoboMaster University Championships.
+
+URL
+WhatsApp Image 2026-09-28 at 3.42.05 PM (3).jpeg
+https://cde.nus.edu.sg/edic/projects/innovations-in-intelligent-systems/cubesat-propulsion-eg4301-2024/
+DESCRIPTION
+CubeSat Propulsion / CRADLE-M3 (Aerospace Technologies). A 1U titanium-alloy CubeSat thruster made by powder-bed fusion, built as a cheaper alternative to bulky off-the-shelf propulsion. A vacuum chamber test rig validates its thrust under simulated space conditions.
+
+URL
+WhatsApp Image 2026-09-28 at 3.42.05 PM.jpeg
+https://cde.nus.edu.sg/edic/projects/innovating-for-sustainable-cities/micro-hydro-turbine/
+DESCRIPTION
+Sustainable Monitoring of Flora and Fauna (Sustainability). Built with Mandai Wildlife Reserve and NParks, this camera-based system uses computer vision to detect and study birds automatically, visualizing trends that feed into conservation strategy.
+NOTE: this poster's QR decoded to the same URL as the micro-hydro-turbine poster above -- almost certainly a mixed-up QR print at the exhibit (both are Sustainable Design posters), not a real duplicate. Treated in the app as having no scannable URL of its own until corrected.
+
+URL
+WhatsApp Image 2026-09-28 at 3.42.06 PM (1).jpeg
+https://vimeo.com/530134396
+DESCRIPTION
+Katalog (Product Innovation). A collection of 24 booklets cataloguing every product design project on Kickstarter in 2017. Booklet thickness maps to project volume, and color bleeds visualize funding trends across the dataset.
+
+URL
+WhatsApp Image 2026-09-28 at 3.42.06 PM.jpeg
+https://www.youtube.com/watch?v=yjDQCT01k_g&ab_channel=Pras
+DESCRIPTION
+DUET (Creative Technologies). A dual-sided wood-and-metal instrument where players exchange colored marbles along tracks. Sensors read each marble's color and travel time to trigger pitch and note duration, turning play into music.
+
+URL
+WhatsApp Image 2026-09-28 at 3.42.07 PM (1).jpeg
+https://vimeo.com/698038662
+DESCRIPTION
+Typodont+ (Healthcare Innovation). Orthodontic mini-screw insertion demands precision most training can't simulate. Typodont+ is the first practice simulator that detects root contact, giving students a safe space to build skill before real patients.
+
+URL
+WhatsApp Image 2026-09-28 at 3.42.07 PM.jpeg
+https://youtu.be/YPTL8EJZ1Eg
+DESCRIPTION
+Nim Coffee Table (Sustainable Design). A three-legged coffee table showcasing the mouldability of blended fabric. Starch-saturated denim, cotton, and a 3D-printed mould combine two colors into one seamless single-piece form with no joinery at all.
+
+URL
+WhatsApp Image 2026-09-28 at 3.42.08 PM (1).jpeg
+https://cde.nus.edu.sg/edic/projects/innovating-for-better-healthcare/healthcare-utility-box/
+DESCRIPTION
+Healthcare Utility Box / HUB (Healthcare Innovation). A home-delivered cabinet system that uses RFID and a cloud database to streamline patient care inventory for Mobile Inpatient Care-at-Home nurses, with an adjustable work area and built-in IV drip hook.
+
+URL
+WhatsApp Image 2026-09-28 at 3.42.08 PM (2).jpeg
+https://cde.nus.edu.sg/edic/projects/innovating-for-better-healthcare/mobile-workstation-healthcare/
+DESCRIPTION
+Workstation on Wheels (Healthcare Innovation). An all-in-one lightweight luggage under 10kg that streamlines packing and transport for home-care nurses, with specialised drawers, a built-in IV drip stand, and a deployable workstation table.
+
+URL
+WhatsApp Image 2026-09-28 at 3.42.08 PM.jpeg
+https://clementzheng.info/Fusilli
+DESCRIPTION
+Fusilli (Product Innovation). A collection of elastic wrist accessories 3D-printed in polyamide, their forms generated from periodic mathematical formulae. A Leap Motion sensor lets you sculpt new designs by moving your hand through space.
+
+URL
+WhatsApp Image 2026-09-28 at 3.42.09 PM (1).jpeg
+https://cde.nus.edu.sg/edic/projects/innovating-for-sustainable-cities/drone-based-solution-for-leaf-sampling-in-primary-tropical-rainforests/
+DESCRIPTION
+Leaf Sampling Drone (Sustainable Design). A drone-based solution with a foldable boom and adjustable sampling tool that collects leaf samples from rainforest treetops up to 70 metres tall, supporting ecophysiology and foliar nutrient research.
+
+URL
+WhatsApp Image 2026-09-28 at 3.42.09 PM.jpeg
+https://bumblebee.sg/about-us/
+DESCRIPTION
+Bumblebee (Competition Project). A student-run team building Autonomous Underwater Vehicles and Autonomous Surface Vessels that navigate independently from shoreline to deep water, competing at RoboSub and the Maritime RobotX Challenge.
+
+URL
+WhatsApp Image 2026-09-28 at 4.17.25 PM.jpeg
+https://youtu.be/Nfa3Ye8QfzU
+DESCRIPTION
+Monchi (Product Innovation). Inspired by the playacting nature of toys, Monchi began as an entertaining mealtime companion-cum-container to coax fussy children into eating their veggies, then found a second calling protecting hands during messy outdoor snacking. Successfully funded on Kickstarter in 2021 with $34,559 from 766 backers.
