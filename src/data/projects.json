@@ -208,5 +208,16 @@
     "team": "Feng Guozi, Yang Jun Wei, Gabriella Edith Tan Rui",
     "description": "Inspired by the playacting nature of toys, Monchi began as an entertaining mealtime companion-cum-container to coax fussy children into eating their veggies, then found a second calling protecting hands during messy outdoor snacking. Successfully funded on Kickstarter in 2021 with $34,559 from 766 backers.",
     "scores": { "mechanical": 1, "chemical": 0, "curious": 4 }
+  },
+  {
+    "id": "low-cost-carrier-seat",
+    "url": "https://www.youtube.com/watch?v=2Q3jASvPjfU&ab_channel=NUSiDP",
+    "image": "/projects/low-cost-carrier-seat.jpeg",
+    "category": "Product Innovation",
+    "name": "Low-Cost Carrier Economy Seat",
+    "tag": "More comfort without costing cabin space",
+    "team": "Mageshkumar Kirubasankar, Ramie Lim Rui Min",
+    "description": "An ergonomically redesigned economy seat for low-cost carriers that reduces shear force and relieves pressure points across a range of body types. Its isolated reclining mechanism improves comfort without compromising cabin space, while FSR pressure maps, posture tracking, and surveys guide testing.",
+    "scores": { "mechanical": 4, "chemical": 0, "curious": 3 }
   }
 ]
