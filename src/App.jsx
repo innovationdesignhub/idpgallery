@@ -18,6 +18,8 @@ const personalities = [
 const UNLOCK_TARGET = 5
 const RESCAN_COOLDOWN_MS = 4000
 const HINT_DURATION_MS = 1000
+const SCAN_ALERT_DURATION_MS = 2800
+const RECOGNITION_HINT_DELAY_MS = 5000
 
 function App() {
   const [scanned, setScanned] = useState([])
@@ -32,6 +34,7 @@ function App() {
   const [revealTaps, setRevealTaps] = useState(0)
   const [reportRevealed, setReportRevealed] = useState(false)
   const [scanNote, setScanNote] = useState('Point your camera at a project QR')
+  const [scanAlert, setScanAlert] = useState('')
   const [justUnlocked, setJustUnlocked] = useState(false)
   const [showUnlockModal, setShowUnlockModal] = useState(false)
   const [hintedId, setHintedId] = useState(null)
@@ -39,6 +42,8 @@ function App() {
   const videoRef = useRef(null)
   const scannerRef = useRef(null)
   const lastScanRef = useRef({ text: '', time: 0 })
+  const scanAlertTimeoutRef = useRef(null)
+  const recognitionHintTimeoutRef = useRef(null)
   const [introStep, setIntroStep] = useState(0)
 
   useEffect(() => {
@@ -68,6 +73,19 @@ function App() {
     setSelectedProject(project)
   }, [])
 
+  const showScanAlert = useCallback((message) => {
+    if (scanAlertTimeoutRef.current) clearTimeout(scanAlertTimeoutRef.current)
+    setScanAlert(message)
+    scanAlertTimeoutRef.current = setTimeout(() => setScanAlert(''), SCAN_ALERT_DURATION_MS)
+  }, [])
+
+  const scheduleRecognitionHint = useCallback(() => {
+    if (recognitionHintTimeoutRef.current) clearTimeout(recognitionHintTimeoutRef.current)
+    recognitionHintTimeoutRef.current = setTimeout(() => {
+      showScanAlert('Can\'t read the QR yet. Hold steady and move a little closer.')
+    }, RECOGNITION_HINT_DELAY_MS)
+  }, [showScanAlert])
+
   const closeProjectModal = () => {
     setSelectedProject(null)
     if (justUnlocked) {
@@ -87,10 +105,17 @@ function App() {
     const now = Date.now()
     if (text === lastScanRef.current.text && now - lastScanRef.current.time < RESCAN_COOLDOWN_MS) return
     lastScanRef.current = { text, time: now }
+    if (recognitionHintTimeoutRef.current) clearTimeout(recognitionHintTimeoutRef.current)
     const match = projects.find((project) => project.url && project.url === text)
-    if (match) addProject(match)
-    else setScanNote("That code isn't linked to a gallery project yet.")
-  }, [addProject])
+    if (match) {
+      setScanAlert('')
+      addProject(match)
+    } else {
+      setScanNote("That code isn't linked to a gallery project yet.")
+      showScanAlert("QR recognised, but it isn't linked to a gallery project.")
+      scheduleRecognitionHint()
+    }
+  }, [addProject, scheduleRecognitionHint, showScanAlert])
 
   const startCamera = async () => {
     if (!videoRef.current) return
@@ -101,21 +126,49 @@ function App() {
           preferredCamera: 'environment',
           highlightScanRegion: true,
           highlightCodeOutline: true,
-          maxScansPerSecond: 5,
+          maxScansPerSecond: 12,
+          calculateScanRegion: (video) => {
+            const size = Math.round(Math.min(video.videoWidth, video.videoHeight) * 0.92)
+            const scanSize = Math.min(900, size)
+            return {
+              x: Math.round((video.videoWidth - size) / 2),
+              y: Math.round((video.videoHeight - size) / 2),
+              width: size,
+              height: size,
+              downScaledWidth: scanSize,
+              downScaledHeight: scanSize,
+            }
+          },
         })
       }
       await scannerRef.current.start()
+      const videoTrack = videoRef.current.srcObject?.getVideoTracks?.()[0]
+      if (videoTrack?.applyConstraints) {
+        const capabilities = videoTrack.getCapabilities?.() || {}
+        const advanced = capabilities.focusMode?.includes?.('continuous') ? [{ focusMode: 'continuous' }] : []
+        videoTrack.applyConstraints({
+          width: { ideal: 1920 },
+          height: { ideal: 1080 },
+          advanced,
+        }).catch(() => {})
+      }
       setCameraOn(true)
+      setScanAlert('')
       setScanNote('Camera ready. Point it at a project QR code.')
+      scheduleRecognitionHint()
     } catch {
       setCameraOn(false)
       setScanNote('Camera permission was not granted. Try the demo scan below.')
+      showScanAlert('Camera unavailable. Check permission and try again.')
     }
   }
 
   const stopCamera = () => {
     scannerRef.current?.stop()
+    if (recognitionHintTimeoutRef.current) clearTimeout(recognitionHintTimeoutRef.current)
+    if (scanAlertTimeoutRef.current) clearTimeout(scanAlertTimeoutRef.current)
     setCameraOn(false)
+    setScanAlert('')
     setScanNote('Camera paused. Open it again whenever you are ready.')
   }
 
@@ -142,14 +195,20 @@ function App() {
 
   useEffect(() => () => scannerRef.current?.destroy(), [])
 
-  useEffect(() => () => { if (hintTimeoutRef.current) clearTimeout(hintTimeoutRef.current) }, [])
+  useEffect(() => () => {
+    if (hintTimeoutRef.current) clearTimeout(hintTimeoutRef.current)
+    if (scanAlertTimeoutRef.current) clearTimeout(scanAlertTimeoutRef.current)
+    if (recognitionHintTimeoutRef.current) clearTimeout(recognitionHintTimeoutRef.current)
+  }, [])
 
   useEffect(() => {
     if (!scannerRef.current) return
     if (selectedProject) scannerRef.current.pause()
-    else if (cameraOn) scannerRef.current.start()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedProject])
+    else if (cameraOn) {
+      scannerRef.current.start()
+      scheduleRecognitionHint()
+    }
+  }, [cameraOn, scheduleRecognitionHint, selectedProject])
 
   useEffect(() => {
     if (!reportCardRef.current) return undefined
@@ -197,17 +256,28 @@ function App() {
       </section>
 
       <section className={`scanner-panel app-reveal ${introStep >= 5 ? 'is-in' : ''}`}>
-        <div className={`camera-window ${cameraOn ? 'camera-active' : ''}`}>
+        <div
+          className={`camera-window ${cameraOn ? 'camera-active' : ''}`}
+          onClick={cameraOn ? undefined : startCamera}
+          onKeyDown={cameraOn ? undefined : (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault()
+              startCamera()
+            }
+          }}
+          role={cameraOn ? undefined : 'button'}
+          tabIndex={cameraOn ? undefined : 0}
+          aria-label={cameraOn ? undefined : 'Open camera scanner'}
+        >
           <video ref={videoRef} muted playsInline className="camera-feed" />
           <div className="scan-corner top-left" /><div className="scan-corner top-right" /><div className="scan-corner bottom-left" /><div className="scan-corner bottom-right" />
-          {!cameraOn && <div className="camera-center"><span className="camera-icon"><ScanLine size={28} /></span><strong>Ready when you are</strong><small>{scanNote}</small></div>}
+          {!cameraOn && <div className="camera-center"><span className="camera-icon"><ScanLine size={28} /></span><strong>Ready when you are</strong><span className="primary-button camera-open-button"><Camera size={18} /> Open camera</span></div>}
+          {scanAlert && <div className="scan-alert" role="status" aria-live="polite"><ScanLine size={20} /><span>{scanAlert}</span></div>}
+          {cameraOn && <button className="camera-stop-button" onClick={stopCamera}><Camera size={15} /> Stop camera</button>}
           <span className="live-pill"><span className="status-dot" /> {cameraOn ? 'LIVE' : 'IDP SCANNER'}</span>
           <span className="camera-count">{String(Math.min(scanned.length, UNLOCK_TARGET)).padStart(2, '0')} / 0{UNLOCK_TARGET}</span>
         </div>
         {cameraOn && <p className="camera-caption">{scanNote}</p>}
-        <div className="scan-actions">
-          <button className="primary-button" onClick={cameraOn ? stopCamera : startCamera}><Camera size={18} /> {cameraOn ? 'Stop camera' : 'Open camera'}</button>
-        </div>
         {devMode && <div className="dev-panel"><div><span className="eyebrow">DEV MODE</span><strong>Choose a project to simulate a scan</strong></div><div className="dev-projects">{projects.map((project) => <button key={project.id} type="button" className={scanned.some((item) => item.id === project.id) ? 'selected' : ''} onClick={() => addProject(project)}>{project.name}<Check size={14} /></button>)}</div><div className="dev-report-picker"><span className="eyebrow">PREVIEW A REPORT</span><div>{personalities.map((item) => <button key={item.key} type="button" className={personality.key === item.key ? 'selected' : ''} onClick={() => setDevPersonalityKey(item.key)}><span>{item.emoji}</span>{item.name}</button>)}<button type="button" className={!devPersonalityKey ? 'selected' : ''} onClick={() => setDevPersonalityKey(null)}>auto result</button></div></div></div>}
       </section>
 
